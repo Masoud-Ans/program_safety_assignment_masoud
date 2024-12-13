@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Routine1" Id="{37108b01-00be-44a6-94fd-50b5708deed1}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Routine1
+VAR
+	State 			: INT :=0 ;
+	ToTimeoutbool 	: TON ;
+	T1Timer 		: BOOL ;
+	enable 			: BOOL;
+	rTrigenable 	: R_TRIG;
+	GetReadyR1 		: BOOL ;
+	GetIntoCarR1 		: BOOL ;
+	GoToworkR1 		: BOOL ;
+	
+	
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[rTrigenable(CLk := enable);
+ToTimeoutbool(IN := T1Timer,PT := T#2S);
+gvl.DateCheck := False ;
+CASE state OF
+	0:
+		GVL.MakeCoffee 			:= TRUE;
+		T1Timer 				:= TRUE;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			GVL.MakeCoffee 		:= FALSE ;
+			state 				:= 1; 
+		END_IF
+		
+	1:
+		GVL.EatBreakfast 		:= TRUE;
+			T1Timer 			:= TRUE;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			GVL.EatBreakfast	:= FALSE ;
+			state 				:= 2;
+		END_IF
+		
+	2:
+		GetReadyR1 			:= TRUE;
+		T1Timer 				:= TRUE;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			GetReadyR1 			:= FALSE ;
+			state 				:= 3;
+		END_IF
+		
+	3:
+		GetIntoCarR1				:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			GetIntoCarR1			:= FALSE ;
+			state 				:= 4;
+		END_IF					
+	4: 
+		GoToworkR1				:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			GoToworkR1			:= FALSE ;
+			state 				:= 5;
+		END_IF	
+	
+	5:
+		GVL.ComeBackHome			:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			GVL.ComeBackHome	:= FALSE ;
+			state 				:= 6;
+		END_IF	
+	6:
+		gvl.Morning 			:= FALSE;
+END_CASE
+]]></ST>
+    </Implementation>
+    <LineIds Name="Routine1">
+      <LineId Id="330" Count="58" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

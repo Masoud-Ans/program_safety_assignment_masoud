@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Routine2" Id="{f5cf2cb4-e44f-4d5f-b6a2-243c16c1fdd7}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Routine2
+VAR
+	     
+	DoLaundriesR2             : BOOL ; 
+	DoGroceriesR2             : BOOL ; 
+	
+	OrganizeGroceriesR2      	: BOOL ; 
+	CheckWashingMachineR2    	: BOOL ; 
+	DoOtherChoresR2         	: BOOL ; 
+	CookSomethingR2           : BOOL ; 
+	UnloadMachineR2          	: BOOL ;  
+	EatLunchR2				: BOOL ;
+	State : INT :=0  ;
+	Day  : STRING  ;
+	ToTimeoutbool : TON ;
+	T1Timer : BOOL ;
+	enable : BOOL;
+	rTrigenable : R_TRIG;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[rTrigenable(CLk := enable);
+ToTimeoutbool(IN := T1Timer,PT := T#2S);
+gvl.DateCheck := False ;
+CASE state OF
+	0:
+		GVL.MakeCoffee 			:= TRUE;
+		T1Timer 				:= TRUE;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			GVL.MakeCoffee 		:= FALSE ;
+			state 				:= 1; 
+		END_IF
+		
+	1:
+		GVL.EatBreakfast 		:= TRUE;
+			T1Timer 			:= TRUE;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			GVL.EatBreakfast	:= FALSE ;
+			state 				:= 2;
+		END_IF
+		
+	2:
+		DoLaundriesR2 			:= TRUE;
+			T1Timer 				:= TRUE;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			DoLaundriesR2 		:= FALSE ;
+			state 				:= 3;
+		END_IF
+		
+	3:
+		DoGroceriesR2				:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			DoGroceriesR2			:= FALSE ;
+			state 				:= 4;
+		END_IF					
+	4: 
+		gvl.ComeBackHome		:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			gvl.ComeBackHome	:= FALSE ;
+			state 				:= 5;
+		END_IF	
+	
+	5:
+		OrganizeGroceriesR2		:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			OrganizeGroceriesR2	:= FALSE ;
+			state 				:= 6;
+		END_IF
+	6:
+		CheckWashingMachineR2		:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			CheckWashingMachineR2	:= FALSE ;
+			state 				:= 6;
+		END_IF
+	7:	
+		DoOtherChoresR2		:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			DoOtherChoresR2	:= FALSE ;
+			state 				:= 6;
+		END_IF
+	8:
+		CookSomethingR2		:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			CookSomethingR2	:= FALSE ;
+			state 				:= 6;
+		END_IF
+	9:
+		EatLunchR2		:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			EatLunchR2	:= FALSE ;
+			state 				:= 6;
+		END_IF
+	10:
+		UnloadMachineR2		:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			UnloadMachineR2	:= FALSE ;
+			state 				:= 6;
+		END_IF
+	11:
+		GVL.GoToBed		:= TRUE;
+		T1Timer 				:= TRUE ;
+		IF ToTimeoutbool.Q THEN
+			T1Timer 			:= FALSE;
+			OrganizeGroceriesR2	:= FALSE ;
+			state 				:= 6;
+		END_IF
+
+	99:
+		gvl.Morning 			:= FALSE;
+END_CASE
+]]></ST>
+    </Implementation>
+    <LineIds Name="Routine2">
+      <LineId Id="1077" Count="107" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

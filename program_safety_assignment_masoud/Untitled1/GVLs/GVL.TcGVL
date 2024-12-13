@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="GVL" Id="{0eb15bf5-694d-4967-b4b9-b366a288d4ce}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	Morning 		: BOOL	 ;
+	
+	WakeUp			: BOOL	 ;
+	DateCheck		: BOOL	 ;
+	ComeBackHome	: BOOL	 ;
+	TakeShower		: BOOL	 ;
+	GoToBed			: BOOL 	 ;
+	MakeTheBed		: BOOL   ;
+	MakeCoffee		: BOOL	 ;
+	EatBreakfast	: BOOL	 ;
+	
+			
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
