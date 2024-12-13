@@ -3,7 +3,7 @@
   <GVL Name="GVL" Id="{0eb15bf5-694d-4967-b4b9-b366a288d4ce}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	Morning 		: BOOL	 ;
+	Morning 		: BOOL := FALSE	 ;
 	
 	WakeUp			: BOOL	 ;
 	DateCheck		: BOOL	 ;

@@ -3,19 +3,18 @@
   <POU Name="MAIN" Id="{5eeb6e1b-3578-49b3-8f85-ec5f5e749d55}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	State : INT :=0  ;
-	
-	ToTimeoutbool : TON ;
-	T1Timer : BOOL ;
-	enable : BOOL;
-	rTrigenable : R_TRIG;
+	State 			: INT	:=0  ;
+
+	ToTimeoutbool 	: TON ;
+	T1Timer 		: BOOL ;
+	enable 			: BOOL;
+	rTrigenable 	: R_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[rTrigenable(CLk := enable);
-
 ToTimeoutbool(IN := T1Timer,PT := T#2S);
-IF GVL.Morning THEN
+IF gvl.Morning THEN
 	state := 0;
 END_IF
 	CASE state OF
@@ -54,11 +53,14 @@ END_IF
 		IF gvl.Day = 'Sat' OR gvl.Day = 'Sun' THEN
 			routine2();
 			gvl.SRoutine2 			:= TRUE;
+			State					:= 5;
 		ELSIF gvl.Day = 'Weekdays' THEN
 		 	routine1();		
 			GVl.SRoutine1 			:= TRUE ;
+			State					:= 5;
 		END_IF
-	
+	5:
+		gvl.Morning 				:= FALSE;
 	
 		
 	END_CASE
@@ -66,7 +68,6 @@ END_IF
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="61" Count="0" />
-      <LineId Id="129" Count="0" />
       <LineId Id="60" Count="0" />
       <LineId Id="12" Count="0" />
       <LineId Id="98" Count="1" />
@@ -98,12 +99,15 @@ END_IF
       <LineId Id="52" Count="0" />
       <LineId Id="29" Count="0" />
       <LineId Id="31" Count="0" />
-      <LineId Id="131" Count="0" />
+      <LineId Id="134" Count="0" />
+      <LineId Id="142" Count="0" />
       <LineId Id="34" Count="0" />
       <LineId Id="133" Count="0" />
       <LineId Id="132" Count="0" />
+      <LineId Id="143" Count="0" />
       <LineId Id="32" Count="0" />
       <LineId Id="28" Count="0" />
+      <LineId Id="141" Count="0" />
       <LineId Id="27" Count="0" />
       <LineId Id="39" Count="0" />
       <LineId Id="24" Count="0" />
