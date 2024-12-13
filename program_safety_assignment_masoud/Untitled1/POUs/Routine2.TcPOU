@@ -4,21 +4,21 @@
     <Declaration><![CDATA[PROGRAM Routine2
 VAR
 	     
-	DoLaundriesR2             : BOOL ; 
-	DoGroceriesR2             : BOOL ; 
+	DoLaundriesR2             	: BOOL ; 
+	DoGroceriesR2            	: BOOL ; 
 	
 	OrganizeGroceriesR2      	: BOOL ; 
 	CheckWashingMachineR2    	: BOOL ; 
 	DoOtherChoresR2         	: BOOL ; 
-	CookSomethingR2           : BOOL ; 
+	CookSomethingR2           	: BOOL ; 
 	UnloadMachineR2          	: BOOL ;  
-	EatLunchR2				: BOOL ;
-	State : INT :=0  ;
-	Day  : STRING  ;
-	ToTimeoutbool : TON ;
-	T1Timer : BOOL ;
-	enable : BOOL;
-	rTrigenable : R_TRIG;
+	EatLunchR2					: BOOL ;
+	State 						: INT :=0  ;
+	Day  						: STRING  ;
+	ToTimeoutbool 				: TON ;
+	T1Timer 					: BOOL ;
+	enable 						: BOOL;
+	rTrigenable 				: R_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -84,7 +84,7 @@ CASE state OF
 		IF ToTimeoutbool.Q THEN
 			T1Timer 			:= FALSE;
 			CheckWashingMachineR2	:= FALSE ;
-			state 				:= 6;
+			state 				:= 7;
 		END_IF
 	7:	
 		DoOtherChoresR2		:= TRUE;
@@ -92,7 +92,7 @@ CASE state OF
 		IF ToTimeoutbool.Q THEN
 			T1Timer 			:= FALSE;
 			DoOtherChoresR2	:= FALSE ;
-			state 				:= 6;
+			state 				:= 8;
 		END_IF
 	8:
 		CookSomethingR2		:= TRUE;
@@ -100,7 +100,7 @@ CASE state OF
 		IF ToTimeoutbool.Q THEN
 			T1Timer 			:= FALSE;
 			CookSomethingR2	:= FALSE ;
-			state 				:= 6;
+			state 				:= 9;
 		END_IF
 	9:
 		EatLunchR2		:= TRUE;
@@ -108,7 +108,7 @@ CASE state OF
 		IF ToTimeoutbool.Q THEN
 			T1Timer 			:= FALSE;
 			EatLunchR2	:= FALSE ;
-			state 				:= 6;
+			state 				:= 10;
 		END_IF
 	10:
 		UnloadMachineR2		:= TRUE;
@@ -116,7 +116,7 @@ CASE state OF
 		IF ToTimeoutbool.Q THEN
 			T1Timer 			:= FALSE;
 			UnloadMachineR2	:= FALSE ;
-			state 				:= 6;
+			state 				:= 11;
 		END_IF
 	11:
 		GVL.GoToBed		:= TRUE;
@@ -124,16 +124,19 @@ CASE state OF
 		IF ToTimeoutbool.Q THEN
 			T1Timer 			:= FALSE;
 			OrganizeGroceriesR2	:= FALSE ;
-			state 				:= 6;
+			state 				:= 99;
 		END_IF
 
 	99:
 		gvl.Morning 			:= FALSE;
+		
 END_CASE
 ]]></ST>
     </Implementation>
     <LineIds Name="Routine2">
-      <LineId Id="1077" Count="107" />
+      <LineId Id="1077" Count="106" />
+      <LineId Id="1204" Count="0" />
+      <LineId Id="1184" Count="0" />
       <LineId Id="5" Count="0" />
     </LineIds>
   </POU>

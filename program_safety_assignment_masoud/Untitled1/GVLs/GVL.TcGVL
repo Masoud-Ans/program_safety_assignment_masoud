@@ -14,6 +14,10 @@ VAR_GLOBAL
 	MakeCoffee		: BOOL	 ;
 	EatBreakfast	: BOOL	 ;
 	
+	SRoutine1 		: BOOL 	 ;
+	SRoutine2		: BOOL	 ;
+	
+	
 			
 END_VAR]]></Declaration>
   </GVL>

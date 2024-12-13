@@ -26,6 +26,11 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"250"</v>
+              <v n="TextDefault">"Come Back Home"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"128"</v>
               <v n="TextDefault">"Cook"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -112,9 +117,9 @@
             </o>
           </l>
           <l n="Languages" t="ArrayList" />
-          <v n="GuidInit">{8dfeb697-460a-456e-94df-e0c34503bab2}</v>
-          <v n="GuidReInit">{4a6a90a7-5216-409b-917d-d5f676c3e67c}</v>
-          <v n="GuidExitX">{5f882a27-073c-471e-8513-9753c85b61a6}</v>
+          <v n="GuidInit">{77240f9d-1061-4c5c-ad2a-57e8403b4745}</v>
+          <v n="GuidReInit">{e52441af-d0a7-46fb-abc4-910953592c7b}</v>
+          <v n="GuidExitX">{fdcf3a2c-a8f9-432d-a6ef-1d4d602d436e}</v>
         </o>
       </Data>
       <TypeList>

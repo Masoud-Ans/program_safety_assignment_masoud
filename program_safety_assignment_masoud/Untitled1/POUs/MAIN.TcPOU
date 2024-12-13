@@ -13,48 +13,50 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[rTrigenable(CLk := enable);
-rTrigenable(CLk := enable);
+
 ToTimeoutbool(IN := T1Timer,PT := T#2S);
 IF GVL.Morning THEN
 	state := 0;
 END_IF
 	CASE state OF
 	0:
-		GVL.WakeUp 		:= TRUE;
-		T1Timer := TRUE;
+		GVL.WakeUp 					:= TRUE;
+		T1Timer 					:= TRUE;
 		IF ToTimeoutbool.Q THEN
-			T1Timer := FALSE;
-			GVL.WakeUp 		:= FALSE ;
+			T1Timer 				:= FALSE;
+			GVL.WakeUp 				:= FALSE ;
 			state := 1; 
 		END_IF
 		
 	1:
-		GVL.MakeTheBed 	:= TRUE;
-			T1Timer := TRUE;
+		GVL.MakeTheBed 				:= TRUE;
+			T1Timer 				:= TRUE;
 		IF ToTimeoutbool.Q THEN
-			T1Timer := FALSE;
-			GVL.MakeTheBed 		:= FALSE ;
+			T1Timer 				:= FALSE;
+			GVL.MakeTheBed 			:= FALSE ;
 			state := 2;
 		END_IF
 		
 	2:
-		GVL.TakeShower 	:= TRUE;
-		T1Timer := TRUE;
+		GVL.TakeShower 				:= TRUE;
+		T1Timer 					:= TRUE;
 		IF ToTimeoutbool.Q THEN
 			T1Timer := FALSE;
-			GVL.TakeShower 		:= FALSE ;
+			GVL.TakeShower 			:= FALSE ;
 			state := 3;
 		END_IF
 		
 	3:
-		GVL.DateCheck	:= TRUE;
+		GVL.DateCheck				:= TRUE;
 		State := 4; 
 
 	4: 
 		IF Day = 'Sat' OR Day = 'Sun' THEN
 			routine2();
-		ELSE
+			gvl.SRoutine2 			:= TRUE;
+		ELSIF Day = 'Weekdays' THEN
 		 	routine1();		
+			GVl.SRoutine1 			:= TRUE ;
 		END_IF
 	
 	
@@ -64,7 +66,7 @@ END_IF
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="61" Count="0" />
-      <LineId Id="119" Count="0" />
+      <LineId Id="129" Count="0" />
       <LineId Id="60" Count="0" />
       <LineId Id="12" Count="0" />
       <LineId Id="98" Count="1" />
@@ -96,8 +98,10 @@ END_IF
       <LineId Id="52" Count="0" />
       <LineId Id="29" Count="0" />
       <LineId Id="31" Count="0" />
+      <LineId Id="131" Count="0" />
       <LineId Id="34" Count="0" />
-      <LineId Id="36" Count="0" />
+      <LineId Id="133" Count="0" />
+      <LineId Id="132" Count="0" />
       <LineId Id="32" Count="0" />
       <LineId Id="28" Count="0" />
       <LineId Id="27" Count="0" />

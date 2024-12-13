@@ -9,7 +9,7 @@ VAR
 	enable 			: BOOL;
 	rTrigenable 	: R_TRIG;
 	GetReadyR1 		: BOOL ;
-	GetIntoCarR1 		: BOOL ;
+	GetIntoCarR1 	: BOOL ;
 	GoToworkR1 		: BOOL ;
 	
 	
@@ -19,7 +19,8 @@ END_VAR
     <Implementation>
       <ST><![CDATA[rTrigenable(CLk := enable);
 ToTimeoutbool(IN := T1Timer,PT := T#2S);
-gvl.DateCheck := False ;
+gvl.DateCheck := FALSE ;
+
 CASE state OF
 	0:
 		GVL.MakeCoffee 			:= TRUE;
@@ -79,7 +80,9 @@ END_CASE
 ]]></ST>
     </Implementation>
     <LineIds Name="Routine1">
-      <LineId Id="330" Count="58" />
+      <LineId Id="330" Count="2" />
+      <LineId Id="403" Count="0" />
+      <LineId Id="333" Count="55" />
       <LineId Id="5" Count="0" />
     </LineIds>
   </POU>
