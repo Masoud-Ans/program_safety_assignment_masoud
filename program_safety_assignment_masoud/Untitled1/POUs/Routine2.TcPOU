@@ -24,7 +24,8 @@ END_VAR
     <Implementation>
       <ST><![CDATA[rTrigenable(CLk := enable);
 ToTimeoutbool(IN := T1Timer,PT := T#2S);
-gvl.DateCheck := False ;
+gvl.DateCheck := FALSE ;
+gvl.Day := '' ;
 CASE state OF
 	0:
 		GVL.MakeCoffee 			:= TRUE;
@@ -123,7 +124,7 @@ CASE state OF
 		T1Timer 				:= TRUE ;
 		IF ToTimeoutbool.Q THEN
 			T1Timer 			:= FALSE;
-			OrganizeGroceriesR2	:= FALSE ;
+			GVl.GoToBed	:= FALSE ;
 			state 				:= 99;
 		END_IF
 
@@ -134,7 +135,9 @@ END_CASE
 ]]></ST>
     </Implementation>
     <LineIds Name="Routine2">
-      <LineId Id="1077" Count="106" />
+      <LineId Id="1077" Count="2" />
+      <LineId Id="1205" Count="0" />
+      <LineId Id="1080" Count="103" />
       <LineId Id="1204" Count="0" />
       <LineId Id="1184" Count="0" />
       <LineId Id="5" Count="0" />

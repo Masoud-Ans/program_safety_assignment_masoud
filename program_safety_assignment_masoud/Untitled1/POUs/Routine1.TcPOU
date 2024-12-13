@@ -20,6 +20,7 @@ END_VAR
       <ST><![CDATA[rTrigenable(CLk := enable);
 ToTimeoutbool(IN := T1Timer,PT := T#2S);
 gvl.DateCheck := FALSE ;
+gvl.Day := '' ;
 
 CASE state OF
 	0:
@@ -82,6 +83,7 @@ END_CASE
     <LineIds Name="Routine1">
       <LineId Id="330" Count="2" />
       <LineId Id="403" Count="0" />
+      <LineId Id="405" Count="0" />
       <LineId Id="333" Count="55" />
       <LineId Id="5" Count="0" />
     </LineIds>

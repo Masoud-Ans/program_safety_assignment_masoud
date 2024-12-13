@@ -41,6 +41,11 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"561"</v>
+              <v n="TextDefault">"Eat Breakfast"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"868"</v>
               <v n="TextDefault">"Enter the date"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -58,6 +63,11 @@
             <o>
               <v n="TextID">"387"</v>
               <v n="TextDefault">"GetReady"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"285"</v>
+              <v n="TextDefault">"Go to Bed"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -83,6 +93,11 @@
             <o>
               <v n="TextID">"545"</v>
               <v n="TextDefault">"Make Bed"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"225"</v>
+              <v n="TextDefault">"Make Coffee"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>

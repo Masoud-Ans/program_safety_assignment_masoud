@@ -4,7 +4,7 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	State : INT :=0  ;
-	Day  : STRING  ;
+	
 	ToTimeoutbool : TON ;
 	T1Timer : BOOL ;
 	enable : BOOL;
@@ -51,10 +51,10 @@ END_IF
 		State := 4; 
 
 	4: 
-		IF Day = 'Sat' OR Day = 'Sun' THEN
+		IF gvl.Day = 'Sat' OR gvl.Day = 'Sun' THEN
 			routine2();
 			gvl.SRoutine2 			:= TRUE;
-		ELSIF Day = 'Weekdays' THEN
+		ELSIF gvl.Day = 'Weekdays' THEN
 		 	routine1();		
 			GVl.SRoutine1 			:= TRUE ;
 		END_IF
