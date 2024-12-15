@@ -3,7 +3,7 @@
   <POU Name="MAIN" Id="{5eeb6e1b-3578-49b3-8f85-ec5f5e749d55}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	State 			: INT	:=0  ;
+	State 			: INT	:= 5 ;
 
 	ToTimeoutbool 	: TON ;
 	T1Timer 		: BOOL ;
@@ -52,15 +52,13 @@ END_IF
 	4: 
 		IF gvl.Day = 'Sat' OR gvl.Day = 'Sun' THEN
 			routine2();
-			gvl.SRoutine2 			:= TRUE;
-			State					:= 5;
+			gvl.Routine2 			:= TRUE;
+			
 		ELSIF gvl.Day = 'Weekdays' THEN
 		 	routine1();		
-			GVl.SRoutine1 			:= TRUE ;
-			State					:= 5;
+			GVl.Routine1 			:= TRUE ;
+			
 		END_IF
-	5:
-		gvl.Morning 				:= FALSE;
 	
 		
 	END_CASE
@@ -106,8 +104,6 @@ END_IF
       <LineId Id="132" Count="0" />
       <LineId Id="143" Count="0" />
       <LineId Id="32" Count="0" />
-      <LineId Id="28" Count="0" />
-      <LineId Id="141" Count="0" />
       <LineId Id="27" Count="0" />
       <LineId Id="39" Count="0" />
       <LineId Id="24" Count="0" />

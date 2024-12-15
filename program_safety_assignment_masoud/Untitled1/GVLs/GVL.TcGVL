@@ -14,8 +14,8 @@ VAR_GLOBAL
 	MakeCoffee		: BOOL	 ;
 	EatBreakfast	: BOOL	 ;
 	Day 			: STRING ;
-	SRoutine1 		: BOOL 	 ;
-	SRoutine2		: BOOL	 ;
+	Routine1 		: BOOL 	 ;
+	Routine2		: BOOL	 ;
 	
 	
 			

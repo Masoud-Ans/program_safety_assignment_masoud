@@ -3,7 +3,7 @@
   <POU Name="Routine1" Id="{37108b01-00be-44a6-94fd-50b5708deed1}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Routine1
 VAR
-	State 			: INT :=0 ;
+	State 			: INT ;
 	ToTimeoutbool 	: TON ;
 	T1Timer 		: BOOL ;
 	enable 			: BOOL;

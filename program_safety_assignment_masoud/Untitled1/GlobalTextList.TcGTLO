@@ -31,6 +31,16 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"218"</v>
+              <v n="TextDefault">"Common routine"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"574"</v>
+              <v n="TextDefault">"Common Routine"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"128"</v>
               <v n="TextDefault">"Cook"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -116,6 +126,11 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"175"</v>
+              <v n="TextDefault">"Start a day"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"536"</v>
               <v n="TextDefault">"Unload Washing"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -128,6 +143,21 @@
             <o>
               <v n="TextID">"576"</v>
               <v n="TextDefault">"WakeUp"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"460"</v>
+              <v n="TextDefault">"Weekdays"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"921"</v>
+              <v n="TextDefault">"Weekend"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"882"</v>
+              <v n="TextDefault">"Working Days"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
           </l>
