@@ -20,6 +20,9 @@
     <Compile Include="DUT.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DUTs\weekDays.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>

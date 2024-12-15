@@ -9,6 +9,7 @@ VAR
 	T1Timer 		: BOOL ;
 	enable 			: BOOL;
 	rTrigenable 	: R_TRIG;
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -54,7 +55,7 @@ END_IF
 			routine2();
 			gvl.Routine2 			:= TRUE;
 			
-		ELSIF gvl.Day = 'Weekdays' THEN
+		ELSIF gvl.Day = 'Fri' OR gvl.Day = 'Mon' OR gvl.Day = 'Tue' OR gvl.Day = 'Wend' OR gvl.Day = 'Thu' THEN
 		 	routine1();		
 			GVl.Routine1 			:= TRUE ;
 			

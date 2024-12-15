@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="weekDays" Id="{ee409cf9-4635-44a9-99b3-a309247469e8}">
+    <Declaration><![CDATA[TYPE weekDays :
+STRUCT
+	Mon : STRING;
+	Tue : STRING;
+	Wend: STRING;
+	Thu	: STRING;
+	Fri	: STRING;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
